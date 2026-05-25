@@ -2,14 +2,36 @@
 
 namespace App\Controller;
 
+// Importa os Models utilizados para buscar os dados do dashboard
+use App\Model\Aluno;
+use App\Model\Livro;
+use App\Model\Autor;
+use App\Model\Emprestimo;
+
+// Controller responsável pela tela inicial do sistema
 final class InicialController extends Controller
 {
-    // Rota raiz ("/"). Verifica segurança e carrega a tela principal.
+    // Método chamado ao acessar a rota principal "/"
     public static function index() : void
     {
-        parent::isProtected();       
+        // Verifica se o usuário está autenticado.
+        // Caso não esteja logado, será redirecionado para o login.
+        parent::isProtected();      
 
-        // Usa 'include' direto ao invés de 'parent::render' pois a home pode não necessitar de um Model específico para iniciar.
+        // Busca a quantidade total de livros cadastrados
+        $totalLivros = (new Livro())->count();
+
+        // Busca a quantidade total de alunos cadastrados
+        $totalAlunos = (new Aluno())->count();
+
+        // Busca a quantidade total de autores cadastrados
+        $totalAutores = (new Autor())->count();
+
+        // Busca a quantidade de empréstimos ativos
+        $totalEmprestimos = (new Emprestimo())->countAtivos();
+
+        // Carrega a View da tela inicial.
+        // As variáveis acima ficam disponíveis dentro da View.
         include VIEWS . '/Inicial/home.php';
     }
 }
