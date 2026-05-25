@@ -4,120 +4,256 @@ namespace App\DAO;
 
 use App\Model\Livro;
 
+// Classe responsável pelas operações de banco de dados da entidade Livro.
 final class LivroDAO extends DAO
 {
+    /**
+     * Construtor da classe.
+     * Inicializa a conexão com o banco.
+     */
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function save(Livro $model) : Livro
+    /**
+     * Salva um livro.
+     * 
+     * Se não possuir ID:
+     * -> INSERT
+     * 
+     * Se já possuir ID:
+     * -> UPDATE
+     */
+    public function save(Livro $model): Livro
     {
-        return ($model->Id == null) ? $this->insert($model) : $this->update($model);
+        return ($model->Id == null)
+            ? $this->insert($model)
+            : $this->update($model);
     }
 
-    public function insert(Livro $model) : Livro
+    // Insere um novo livro no banco.
+    public function insert(Livro $model): Livro
     {
+        /**
+         * Inicia uma transação.
+         * Necessário porque serão feitas múltiplas operações relacionadas:
+         * 
+         * - Inserir livro
+         * - Inserir autores associados
+         */
         parent::$conexao->beginTransaction();
-        
-        $sql = "INSERT INTO livro (id_categoria, titulo, ano, editora, isbn) VALUES (?, ?, ?, ?, ?) ";      
-        $stmt = parent::$conexao->prepare($sql);    
+
+        // SQL para inserir o livro.
+        $sql = "
+            INSERT INTO livro
+            (
+                id_categoria,
+                titulo,
+                ano,
+                editora,
+                isbn
+            )
+            VALUES
+            (?, ?, ?, ?, ?)
+        ";
+
+        // Prepara o SQL
+        $stmt = parent::$conexao->prepare($sql);
+
+        // Associa os valores
         $stmt->bindValue(1, $model->Id_Categoria);
         $stmt->bindValue(2, $model->Titulo);
         $stmt->bindValue(3, $model->Ano);
         $stmt->bindValue(4, $model->Editora);
         $stmt->bindValue(5, $model->Isbn);
+
+        // Executa o INSERT
         $stmt->execute();
+
+        // Recupera o ID gerado automaticamente.
         $model->Id = parent::$conexao->lastInsertId();
 
-        foreach($model->Id_Autores as $item)
+        // Insere os autores associados ao livro na tabela intermediária.
+        foreach ($model->Id_Autores as $item)
         {
-            $sql = "INSERT INTO livro_autor_assoc (id_livro, id_autor) VALUES (?, ?) ";      
-            $stmt = parent::$conexao->prepare($sql);    
+            $sql = "
+                INSERT INTO livro_autor_assoc
+                (id_livro, id_autor)
+                VALUES
+                (?, ?)
+            ";
+
+            $stmt = parent::$conexao->prepare($sql);
+
             $stmt->bindValue(1, $model->Id);
             $stmt->bindValue(2, $item);
+
             $stmt->execute();
         }
 
+        // Confirma todas as alterações da transação.
         parent::$conexao->commit();
-        
+
         return $model;
     }
 
-    public function update(Livro $model) : Livro
+    // Atualiza um livro existente.
+    public function update(Livro $model): Livro
     {
+        // Inicia transação para garantir integridade dos dados.
         parent::$conexao->beginTransaction();
 
-        $sql = "UPDATE livro 
-                SET id_categoria=?, titulo=?, ano=?, editora=?, isbn=?
-                WHERE id=? ";
+        // Atualiza os dados principais do livro.
+        $sql = "
+            UPDATE livro 
+            SET
+                id_categoria=?,
+                titulo=?,
+                ano=?,
+                editora=?,
+                isbn=?
+            WHERE id=?
+        ";
 
         $stmt = parent::$conexao->prepare($sql);
+
         $stmt->bindValue(1, $model->Id_Categoria);
         $stmt->bindValue(2, $model->Titulo);
         $stmt->bindValue(3, $model->Ano);
         $stmt->bindValue(4, $model->Editora);
         $stmt->bindValue(5, $model->Isbn);
         $stmt->bindValue(6, $model->Id);
+
         $stmt->execute();
 
-        $sql = "DELETE FROM livro_autor_assoc WHERE id_livro = ? ";      
-        $stmt = parent::$conexao->prepare($sql);    
+        // Remove todas as associações antigas entre livro e autores.
+        $sql = "
+            DELETE FROM livro_autor_assoc
+            WHERE id_livro = ?
+        ";
+
+        $stmt = parent::$conexao->prepare($sql);
+
         $stmt->bindValue(1, $model->Id);
+
         $stmt->execute();
 
-        foreach($model->Id_Autores as $item)
+        // Insere novamente os autores selecionados no formulário.
+        foreach ($model->Id_Autores as $item)
         {
-            $sql = "INSERT INTO livro_autor_assoc (id_livro, id_autor) VALUES (?, ?) ";      
-            $stmt = parent::$conexao->prepare($sql);    
+            $sql = "
+                INSERT INTO livro_autor_assoc
+                (id_livro, id_autor)
+                VALUES
+                (?, ?)
+            ";
+
+            $stmt = parent::$conexao->prepare($sql);
+
             $stmt->bindValue(1, $model->Id);
             $stmt->bindValue(2, $item);
+
             $stmt->execute();
         }
 
+        // Finaliza a transação.
         parent::$conexao->commit();
-        
+
         return $model;
     }
 
-    public function selectById(int $id) : ?Livro
+    // Busca um livro pelo ID.
+    public function selectById(int $id): ?Livro
     {
         $sql = "SELECT * FROM livro WHERE id=? ";
 
-        $stmt = parent::$conexao->prepare($sql);  
+        // Prepara o SQL
+        $stmt = parent::$conexao->prepare($sql);
+
+        // Define o ID
         $stmt->bindValue(1, $id);
+
+        // Executa a consulta
         $stmt->execute();
 
+        // Converte o resultado em objeto Livro.
         $model = $stmt->fetchObject("App\Model\Livro");
 
-        $sql = "SELECT * FROM livro_autor_assoc WHERE id_livro=? ";
-        $stmt = parent::$conexao->prepare($sql);  
-        $stmt->bindValue(1, $id);
-        $stmt->execute();
-        $livro_autores_assoc = $stmt->fetchAll(DAO::FETCH_CLASS);
+        // Busca os autores associados ao livro.
+        $sql = "
+            SELECT *
+            FROM livro_autor_assoc
+            WHERE id_livro=?
+        ";
 
-        foreach($livro_autores_assoc as $item)
+        $stmt = parent::$conexao->prepare($sql);
+
+        $stmt->bindValue(1, $id);
+
+        $stmt->execute();
+
+        // Recupera todas as associações livro x autor.
+        $livro_autores_assoc =
+            $stmt->fetchAll(DAO::FETCH_CLASS);
+
+        // Adiciona os IDs dos autores no array do model.
+        foreach ($livro_autores_assoc as $item)
+        {
             $model->Id_Autores[] = $item->Id_Autor;
+        }
 
         return $model;
     }
 
-    public function select() : array
+    // Retorna todos os livros cadastrados.
+    public function select(): array
     {
         $sql = "SELECT * FROM livro ";
 
-        $stmt = parent::$conexao->prepare($sql);  
+        // Prepara o SQL
+        $stmt = parent::$conexao->prepare($sql);
+
+        // Executa a consulta
         $stmt->execute();
 
-        return $stmt->fetchAll(DAO::FETCH_CLASS, "App\Model\Livro");
+        // Converte todos os registros em objetos Livro.
+        return $stmt->fetchAll(
+            DAO::FETCH_CLASS,
+            "App\Model\Livro"
+        );
     }
 
-    public function delete(int $id) : bool
+    // Remove um livro pelo ID.
+    public function delete(int $id): bool
     {
         $sql = "DELETE FROM livro WHERE id=? ";
 
-        $stmt = parent::$conexao->prepare($sql);  
+        // Prepara o SQL
+        $stmt = parent::$conexao->prepare($sql);
+
+        // Define o ID
         $stmt->bindValue(1, $id);
+
+        // Executa o DELETE
         return $stmt->execute();
+    }
+
+    // Conta quantos livros existem cadastrados.
+    public function count(): int
+    {
+        $sql = "SELECT COUNT(*) AS total FROM Livro";
+
+        // Prepara o SQL
+        $stmt = parent::$conexao->prepare($sql);
+
+        // Executa a consulta
+        $stmt->execute();
+
+        // Recupera o resultado
+        $resultado = $stmt->fetchObject();
+
+        // Retorna o total convertido para inteiro
+        return (int) $resultado->total;
     }
 }
