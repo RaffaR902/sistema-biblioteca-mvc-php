@@ -9,11 +9,9 @@ final class Aluno extends Model
 {
     public ?int $Id = null;
 
-    public ?string $Nome
-    {
-        set
-        {
-            if(strlen($value) < 3)
+    public ?string $Nome {
+        set {
+            if (strlen($value) < 3)
                 throw new Exception("Nome deve ter no mínimo 3 caracteres.");
 
             $this->Nome = $value;
@@ -23,11 +21,9 @@ final class Aluno extends Model
     }
 
 
-    public ?string $RA
-    {
-        set
-        {
-            if(empty($value))
+    public ?string $RA {
+        set {
+            if (empty($value))
                 throw new Exception("Preencha o RA");
 
             $this->RA = $value;
@@ -37,11 +33,9 @@ final class Aluno extends Model
     }
 
 
-    public ?string $Curso
-    {
-        set
-        {
-            if(strlen($value) < 3)
+    public ?string $Curso {
+        set {
+            if (strlen($value) < 3)
                 throw new Exception("Curso deve ter no mínimo 3 caracteres.");
 
             $this->Curso = $value;
@@ -51,19 +45,19 @@ final class Aluno extends Model
     }
 
 
-    function save() : Aluno
+    function save(): Aluno
     {
         return new AlunoDAO()->save($this);
     }
 
 
-    function getById(int $id) : ?Aluno
+    function getById(int $id): ?Aluno
     {
         return new AlunoDAO()->selectById($id);
     }
 
 
-    function getAllRows() : array
+    function getAllRows(): array
     {
         $this->rows = new AlunoDAO()->select();
 
@@ -71,8 +65,13 @@ final class Aluno extends Model
     }
 
 
-    function delete(int $id) : bool
+    function delete(int $id): bool
     {
         return new AlunoDAO()->delete($id);
+    }
+
+    function count(): int
+    {
+        return new AlunoDAO()->count();
     }
 }

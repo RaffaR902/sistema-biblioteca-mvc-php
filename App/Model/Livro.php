@@ -16,11 +16,9 @@ final class Livro extends Model
 
     public $Id_Autores;
 
-    public ?string $Titulo
-    {
-        set
-        {
-            if(strlen($value) < 3)
+    public ?string $Titulo {
+        set {
+            if (strlen($value) < 3)
                 throw new Exception("Título deve ter no mínimo 3 caracteres.");
 
             $this->Titulo = $value;
@@ -29,11 +27,9 @@ final class Livro extends Model
         get => $this->Titulo ?? null;
     }
 
-    public ?string $Isbn
-    {
-        set
-        {
-            if(strlen($value) < 3)
+    public ?string $Isbn {
+        set {
+            if (strlen($value) < 3)
                 throw new Exception("ISBN deve ter no mínimo 3 caracteres.");
 
             $this->Isbn = $value;
@@ -42,11 +38,9 @@ final class Livro extends Model
         get => $this->Isbn ?? null;
     }
 
-    public ?string $Editora
-    {
-        set
-        {
-            if(strlen($value) < 3)
+    public ?string $Editora {
+        set {
+            if (strlen($value) < 3)
                 throw new Exception("Editora deve ter no mínimo 3 caracteres.");
 
             $this->Editora = $value;
@@ -55,11 +49,9 @@ final class Livro extends Model
         get => $this->Editora ?? null;
     }
 
-    public ?string $Ano
-    {
-        set
-        {
-            if(strlen($value) < 3)
+    public ?string $Ano {
+        set {
+            if (strlen($value) < 3)
                 throw new Exception("Ano deve ter no mínimo 3 caracteres.");
 
             $this->Ano = $value;
@@ -69,19 +61,19 @@ final class Livro extends Model
     }
 
 
-    function save() : Livro
+    function save(): Livro
     {
         return new LivroDAO()->save($this);
     }
 
 
-    function getById(int $id) : ?Livro
+    function getById(int $id): ?Livro
     {
         return new LivroDAO()->selectById($id);
     }
 
 
-    function getAllRows() : array
+    function getAllRows(): array
     {
         $this->rows = new LivroDAO()->select();
 
@@ -89,8 +81,13 @@ final class Livro extends Model
     }
 
 
-    function delete(int $id) : bool
+    function delete(int $id): bool
     {
         return new LivroDAO()->delete($id);
+    }
+
+    function count(): int
+    {
+        return new LivroDAO()->count();
     }
 }

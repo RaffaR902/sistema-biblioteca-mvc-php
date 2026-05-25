@@ -21,20 +21,20 @@ final class Emprestimo extends Model
     public array $rows_livros = [];
     public array $rows_alunos = [];
 
-    
-    function save() : Emprestimo
+
+    function save(): Emprestimo
     {
         return new EmprestimoDAO()->save($this);
     }
 
 
-    function getById(int $id) : ?Emprestimo
+    function getById(int $id): ?Emprestimo
     {
         return new EmprestimoDAO()->selectById($id);
     }
 
 
-    function getAllRows() : array
+    function getAllRows(): array
     {
         $this->rows = new EmprestimoDAO()->select();
 
@@ -42,8 +42,13 @@ final class Emprestimo extends Model
     }
 
 
-    function delete(int $id) : bool
+    function delete(int $id): bool
     {
         return new EmprestimoDAO()->delete($id);
+    }
+
+    function countAtivos(): int
+    {
+        return new EmprestimoDAO()->countAtivos();
     }
 }
