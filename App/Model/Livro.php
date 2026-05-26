@@ -118,4 +118,10 @@ final class Livro extends Model
     {
         return new LivroDAO()->delete($id);
     }
+
+    // Retorna a quantidade total de livros cadastrados
+    function count(): int
+    {
+        return new LivroDAO()->count();
+    }
 }

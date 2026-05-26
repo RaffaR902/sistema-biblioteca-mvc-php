@@ -90,4 +90,10 @@ final class Autor extends Model
     {
         return new AutorDAO()->delete($id);
     }
+
+    // Retorna a quantidade total de autores cadastrados
+    function count(): int
+    {
+        return new AutorDAO()->count();
+    }
 }

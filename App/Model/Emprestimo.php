@@ -60,4 +60,10 @@ final class Emprestimo extends Model
     {
         return new EmprestimoDAO()->delete($id);
     }
+
+    // Retorna a quantidade de empréstimos ativos
+    function countAtivos(): int
+    {
+        return new EmprestimoDAO()->countAtivos();
+    }
 }

@@ -89,4 +89,10 @@ final class Aluno extends Model
     {
         return new AlunoDAO()->delete($id);
     }
+
+    // Retorna a quantidade total de alunos cadastrados
+    function count(): int
+    {
+        return new AlunoDAO()->count();
+    }
 }
