@@ -1,0 +1,114 @@
+/* ========================================= */
+/* Configurações gerais da página */
+/* ========================================= */
+body {
+    margin: 0; /* Remove margens padrão do navegador */
+    min-height: 90vh; /* Altura mínima da página */
+    background-color: #eef4ff; /* Cor de fundo da página */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte principal */
+}
+
+
+/* ========================================= */
+/* Barra de navegação personalizada */
+/* ========================================= */
+.navbar-custom {
+    background-color: white; /* Fundo branco */
+    border-radius: 20px; /* Bordas arredondadas */
+    margin: 15px; /* Espaçamento externo */
+    padding: 12px 20px; /* Espaçamento interno */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06); /* Sombra suave */
+}
+
+
+/* ========================================= */
+/* Logo / nome do sistema */
+/* ========================================= */
+.brand-custom {
+    font-weight: bold; /* Texto em negrito */
+    color: #355070 !important; /* Cor do texto */
+    font-size: 1.3rem; /* Tamanho da fonte */
+}
+
+
+/* ========================================= */
+/* Links do menu */
+/* ========================================= */
+.nav-custom {
+    color: #355070 !important; /* Cor do texto */
+    border-radius: 12px; /* Bordas arredondadas */
+    padding: 8px 15px !important; /* Espaçamento interno */
+    transition: .25s; /* Transição suave */
+}
+
+
+/* ========================================= */
+/* Hover dos links do menu */
+/* ========================================= */
+.nav-custom:hover {
+    background-color: #eef4ff; /* Cor ao passar o mouse */
+}
+
+
+/* ========================================= */
+/* Área do usuário logado */
+/* ========================================= */
+.user-pill {
+    background-color: #eef4ff; /* Fundo azul claro */
+    padding: 8px 16px; /* Espaçamento interno */
+    border-radius: 999px; /* Formato arredondado */
+    color: #355070; /* Cor do texto */
+}
+
+
+/* ========================================= */
+/* Botão de logout */
+/* ========================================= */
+.btn-logout {
+    background-color: #7da7d9; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Remove borda padrão */
+    border-radius: 12px; /* Bordas arredondadas */
+    padding: 8px 18px; /* Espaçamento interno */
+    transition: .25s; /* Transição suave */
+}
+
+
+/* ========================================= */
+/* Hover do botão logout */
+/* ========================================= */
+.btn-logout:hover {
+    background-color: #5f8fc8; /* Cor ao passar o mouse */
+    color: white; /* Mantém a cor do texto */
+}
+
+
+/* ========================================= */
+/* Menu dropdown personalizado */
+/* ========================================= */
+.dropdown-custom {
+    border: none; /* Remove borda padrão */
+    border-radius: 16px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Sombra suave */
+}
+
+
+/* ========================================= */
+/* Itens do dropdown */
+/* ========================================= */
+.dropdown-item {
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 10px 14px; /* Espaçamento interno */
+    color: #355070; /* Cor do texto */
+    transition: .2s; /* Transição suave */
+}
+
+
+/* ========================================= */
+/* Hover dos itens do dropdown */
+/* ========================================= */
+.dropdown-item:hover {
+    background-color: #eef4ff; /* Cor ao passar o mouse */
+    color: #355070; /* Mantém a cor do texto */
+}
