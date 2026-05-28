@@ -1,0 +1,141 @@
+/* ========================================= */
+/* Estilização geral da tela de login */
+/* ========================================= */
+
+/* Corpo principal da página */
+body{
+    margin: 0; /* Remove margens padrão do navegador */
+    min-height: 100vh; /* Altura mínima ocupando toda a tela */
+    display: flex; /* Ativa Flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #eef4ff; /* Cor de fundo da página */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte padrão */
+}
+
+
+/* ========================================= */
+/* Container principal */
+/* ========================================= */
+.main-container{
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 20px; /* Espaçamento interno */
+}
+
+
+/* ========================================= */
+/* Card principal do login */
+/* ========================================= */
+.main-card{
+    max-width: 1100px; /* Largura máxima do card */
+    margin: auto; /* Centraliza horizontalmente */
+    border: none; /* Remove borda padrão */
+    border-radius: 25px; /* Bordas arredondadas */
+    overflow: hidden; /* Impede elementos de ultrapassarem as bordas */
+    background-color: white; /* Fundo branco */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Sombra do card */
+}
+
+
+/* ========================================= */
+/* Lado esquerdo da tela */
+/* ========================================= */
+.left-side{
+    min-height: 650px; /* Altura mínima */
+    background-image:
+        linear-gradient(
+            rgba(110, 110, 110, 0.45),
+            rgba(46, 46, 46, 0.6)
+        ),
+        url('../../../public/img/img_tela_login.png'); /* Imagem de fundo com camada escura */
+    background-size: cover; /* Faz a imagem cobrir todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede repetição */
+    color: white; /* Cor do texto */
+    display: flex; /* Ativa Flexbox */
+    flex-direction: column; /* Organiza em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    padding: 40px; /* Espaçamento interno */
+}
+
+/* Título principal do lado esquerdo */
+.left-side h1{
+    font-size: 3rem; /* Tamanho grande da fonte */
+    font-weight: bold; /* Texto em negrito */
+}
+
+/* Texto descritivo do lado esquerdo */
+.left-side p{
+    max-width: 400px; /* Limita largura do texto */
+    font-size: 1.1rem; /* Tamanho da fonte */
+}
+
+
+/* ========================================= */
+/* Lado direito da tela */
+/* ========================================= */
+.right-side{
+    background-color: white; /* Fundo branco */
+    display: flex; /* Ativa Flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 40px; /* Espaçamento interno */
+}
+
+
+/* ========================================= */
+/* Caixa do formulário */
+/* ========================================= */
+.login-box{
+    width: 100%; /* Ocupa toda largura disponível */
+    max-width: 400px; /* Limite máximo da largura */
+}
+
+
+/* ========================================= */
+/* Campos do formulário */
+/* ========================================= */
+.form-control{
+    border-radius: 14px; /* Bordas arredondadas */
+    padding: 12px; /* Espaçamento interno */
+    border: 1px solid #d7e3f4; /* Cor da borda */
+}
+
+/* Campo quando selecionado */
+.form-control:focus{
+    border-color: #7da7d9; /* Cor da borda ao focar */
+    box-shadow: 0 0 0 0.2rem rgba(125,167,217,0.2); /* Efeito de foco */
+}
+
+
+/* ========================================= */
+/* Botão de login */
+/* ========================================= */
+.btn-login{
+    width: 100%; /* Ocupa toda largura */
+    border: none; /* Remove borda */
+    border-radius: 14px; /* Bordas arredondadas */
+    padding: 12px; /* Espaçamento interno */
+    font-weight: bold; /* Texto em negrito */
+    background-color: #7da7d9; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    transition: .25s; /* Transição suave */
+}
+
+/* Efeito hover do botão */
+.btn-login:hover{
+    background-color: #5f8fc8; /* Cor ao passar mouse */
+}
+
+
+/* ========================================= */
+/* Responsividade para telas menores */
+/* ========================================= */
+@media(max-width: 768px){
+    /* Oculta a imagem lateral em celulares */
+    .left-side{
+        display: none;
+    }
+}
