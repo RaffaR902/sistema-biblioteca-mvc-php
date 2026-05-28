@@ -1,0 +1,175 @@
+/* ========================================= */
+/* Container principal da página */
+/* ========================================= */
+.page-container{
+    padding: 10px; /* Espaçamento interno geral */
+    padding-left: 15px; /* Espaçamento interno esquerdo */
+    padding-right: 15px; /* Espaçamento interno direito */
+}
+
+
+/* ========================================= */
+/* Card da tabela */
+/* ========================================= */
+.table-card{
+    background-color: white; /* Cor de fundo branca */
+    border-radius: 25px; /* Bordas arredondadas */
+    padding: 25px; /* Espaçamento interno */
+    margin-top: 10px; /* Espaçamento superior */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Sombra do card */
+}
+
+
+/* ========================================= */
+/* Cabeçalho da página */
+/* ========================================= */
+.page-header{
+    display: flex; /* Utiliza Flexbox */
+    justify-content: space-between; /* Espaça os elementos horizontalmente */
+    align-items: center; /* Alinha verticalmente */
+    margin-bottom: 25px; /* Espaçamento inferior */
+    flex-wrap: wrap; /* Permite quebra de linha */
+    gap: 15px; /* Espaçamento entre os elementos */
+}
+
+
+/* ========================================= */
+/* Título da página */
+/* ========================================= */
+.page-title{
+    color: #355070; /* Cor do título */
+    font-weight: bold; /* Texto em negrito */
+    margin: 0; /* Remove margem padrão */
+}
+
+
+/* ========================================= */
+/* Botão de novo cadastro */
+/* ========================================= */
+.btn-new{
+    background-color: #7da7d9; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Remove borda */
+    border-radius: 14px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-weight: bold; /* Texto em negrito */
+    text-decoration: none; /* Remove sublinhado */
+    transition: .25s; /* Transição suave */
+}
+
+
+/* ========================================= */
+/* Hover do botão novo */
+/* ========================================= */
+.btn-new:hover{
+    background-color: #5f8fc8; /* Cor mais escura */
+    color: white; /* Mantém texto branco */
+}
+
+
+/* ========================================= */
+/* Tabela principal */
+/* ========================================= */
+.table{
+    overflow: hidden; /* Oculta excesso de conteúdo */
+    border-radius: 15px; /* Bordas arredondadas */
+    margin: 0; /* Remove margem */
+}
+
+
+/* ========================================= */
+/* Cabeçalho da tabela */
+/* ========================================= */
+.table thead{
+    background-color: #eef4ff; /* Cor de fundo do cabeçalho */
+}
+
+
+/* ========================================= */
+/* Células do cabeçalho */
+/* ========================================= */
+.table th{
+    color: #355070; /* Cor do texto */
+    border: none; /* Remove bordas */
+    padding: 18px; /* Espaçamento interno */
+}
+
+
+/* ========================================= */
+/* Células da tabela */
+/* ========================================= */
+.table td{
+    padding: 18px; /* Espaçamento interno */
+    vertical-align: middle; /* Alinhamento vertical */
+    border-color: #d7e3f4; /* Cor das bordas */
+}
+
+
+/* ========================================= */
+/* Linhas da tabela */
+/* ========================================= */
+.table tbody tr{
+    transition: .2s; /* Transição suave */
+}
+
+
+/* ========================================= */
+/* Hover das linhas */
+/* ========================================= */
+.table tbody tr:hover{
+    background-color: #f7faff; /* Cor ao passar o mouse */
+}
+
+
+/* ========================================= */
+/* Link dos itens da tabela */
+/* ========================================= */
+.link-item{
+    color: #5f8fc8; /* Cor do link */
+    font-weight: 600; /* Peso da fonte */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+
+/* ========================================= */
+/* Hover do link */
+/* ========================================= */
+.link-item:hover{
+    text-decoration: underline; /* Adiciona sublinhado */
+}
+
+
+/* ========================================= */
+/* Botão remover */
+/* ========================================= */
+.btn-delete{
+    background-color: #dc3545; /* Cor de fundo vermelha */
+    color: white; /* Cor do texto */
+    border: none; /* Remove borda */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 8px 14px; /* Espaçamento interno */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: .9rem; /* Tamanho da fonte */
+    transition: .25s; /* Transição suave */
+}
+
+
+/* ========================================= */
+/* Hover do botão remover */
+/* ========================================= */
+.btn-delete:hover{
+    background-color: #bb2d3b; /* Cor mais escura */
+    color: white; /* Mantém texto branco */
+}
+
+
+/* ========================================= */
+/* Caixa de mensagens de erro */
+/* ========================================= */
+.error-box{
+    background-color: #f8d7da; /* Cor de fundo */
+    color: #842029; /* Cor do texto */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 12px; /* Bordas arredondadas */
+    margin-bottom: 25px; /* Espaçamento inferior */
+}
