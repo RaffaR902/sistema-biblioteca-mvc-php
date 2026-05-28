@@ -1,0 +1,102 @@
+/* ========================================= */
+/* Container principal da página */
+/* ========================================= */
+.page-container{
+    padding: 10px; /* Espaçamento interno geral */
+}
+
+
+/* ========================================= */
+/* Card do formulário */
+/* ========================================= */
+.form-card{
+    max-width: 700px; /* Largura máxima do card */
+    margin: 10px auto; /* Centraliza o card horizontalmente */
+    background-color: white; /* Cor de fundo branca */
+    border-radius: 25px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Sombra do card */
+}
+
+
+/* ========================================= */
+/* Título da página */
+/* ========================================= */
+.page-title{
+    color: #355070; /* Cor do título */
+    font-weight: bold; /* Texto em negrito */
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+
+/* ========================================= */
+/* Subtítulo da página */
+/* ========================================= */
+.page-subtitle{
+    color: #6b86a3; /* Cor do subtítulo */
+    margin-bottom: 35px; /* Espaçamento inferior */
+}
+
+
+/* ========================================= */
+/* Labels do formulário */
+/* ========================================= */
+.form-label{
+    color: #355070; /* Cor do texto */
+    font-weight: 600; /* Peso da fonte */
+    margin-bottom: 8px; /* Espaçamento inferior */
+}
+
+
+/* ========================================= */
+/* Campos do formulário */
+/* ========================================= */
+.form-control{
+    border-radius: 14px; /* Bordas arredondadas */
+    padding: 12px; /* Espaçamento interno */
+    border: 1px solid #d7e3f4; /* Cor da borda */
+    background-color: white; /* Cor de fundo */
+}
+
+
+/* ========================================= */
+/* Efeito ao selecionar o campo */
+/* ========================================= */
+.form-control:focus{
+    border-color: #7da7d9; /* Cor da borda ao focar */
+    box-shadow: 0 0 0 0.2rem rgba(125,167,217,0.2); /* Sombra ao focar */
+}
+
+
+/* ========================================= */
+/* Botão salvar */
+/* ========================================= */
+.btn-save{
+    background-color: #7da7d9; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Remove borda */
+    border-radius: 14px; /* Bordas arredondadas */
+    padding: 12px 28px; /* Espaçamento interno */
+    font-weight: bold; /* Texto em negrito */
+    transition: .25s; /* Transição suave */
+}
+
+
+/* ========================================= */
+/* Hover do botão salvar */
+/* ========================================= */
+.btn-save:hover{
+    background-color: #5f8fc8; /* Cor mais escura */
+}
+
+
+/* ========================================= */
+/* Caixa de mensagens de erro */
+/* ========================================= */
+.error-box{
+    background-color: #f8d7da; /* Cor de fundo */
+    color: #842029; /* Cor do texto */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 12px; /* Bordas arredondadas */
+    margin-bottom: 25px; /* Espaçamento inferior */
+}
