@@ -1,0 +1,156 @@
+/* ========================================= */
+/* Configurações gerais da página */
+/* ========================================= */
+body{
+    background-color: #edf4ff; /* Cor de fundo da página */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte principal */
+}
+
+
+/* ========================================= */
+/* Container principal da home */
+/* ========================================= */
+.home-container{
+    padding: 20px; /* Espaçamento interno */
+}
+
+
+/* ========================================= */
+/* Card de boas-vindas */
+/* ========================================= */
+.welcome-card{
+    background-color: white; /* Fundo branco */
+    border-radius: 25px; /* Bordas arredondadas */
+    padding: 35px; /* Espaçamento interno */
+    margin-bottom: 25px; /* Espaçamento inferior */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Sombra suave */
+}
+
+
+/* ========================================= */
+/* Título de boas-vindas */
+/* ========================================= */
+.welcome-title{
+    color: #355070; /* Cor do texto */
+    font-size: 2rem; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+
+/* ========================================= */
+/* Texto de boas-vindas */
+/* ========================================= */
+.welcome-text{
+    color: #6b86a3; /* Cor do texto */
+    font-size: 1.05rem; /* Tamanho da fonte */
+    margin: 0; /* Remove margem padrão */
+}
+
+
+/* ========================================= */
+/* Grid dos cards de estatísticas */
+/* ========================================= */
+.stats-grid{
+    display: grid; /* Utiliza grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Colunas responsivas */
+    gap: 20px; /* Espaçamento entre os cards */
+    margin-bottom: 25px; /* Espaçamento inferior */
+}
+
+
+/* ========================================= */
+/* Card individual de estatística */
+/* ========================================= */
+.stat-card{
+    background-color: white; /* Fundo branco */
+    border-radius: 22px; /* Bordas arredondadas */
+    padding: 30px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o conteúdo */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Sombra suave */
+    transition: .25s; /* Transição suave */
+}
+
+
+/* ========================================= */
+/* Hover do card de estatística */
+/* ========================================= */
+.stat-card:hover{
+    transform: translateY(-4px); /* Move o card para cima */
+}
+
+
+/* ========================================= */
+/* Número principal do card */
+/* ========================================= */
+.stat-card h2{
+    color: #5f8fc8; /* Cor do texto */
+    font-size: 2.5rem; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+
+/* ========================================= */
+/* Texto do card */
+/* ========================================= */
+.stat-card p{
+    color: #6b86a3; /* Cor do texto */
+    margin: 0; /* Remove margem padrão */
+    font-weight: 600; /* Peso da fonte */
+}
+
+
+/* ========================================= */
+/* Card de ações rápidas */
+/* ========================================= */
+.actions-card{
+    background-color: white; /* Fundo branco */
+    border-radius: 25px; /* Bordas arredondadas */
+    padding: 30px; /* Espaçamento interno */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Sombra suave */
+}
+
+
+/* ========================================= */
+/* Título da seção */
+/* ========================================= */
+.section-title{
+    color: #355070; /* Cor do texto */
+    font-weight: bold; /* Texto em negrito */
+    margin-bottom: 25px; /* Espaçamento inferior */
+}
+
+
+/* ========================================= */
+/* Grid dos botões de ação */
+/* ========================================= */
+.actions-grid{
+    display: grid; /* Utiliza grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Colunas responsivas */
+    gap: 15px; /* Espaçamento entre botões */
+}
+
+
+/* ========================================= */
+/* Botões de ação */
+/* ========================================= */
+.action-btn{
+    background-color: #7da7d9; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+    padding: 14px; /* Espaçamento interno */
+    border-radius: 14px; /* Bordas arredondadas */
+    text-align: center; /* Centraliza o texto */
+    font-weight: bold; /* Texto em negrito */
+    transition: .25s; /* Transição suave */
+}
+
+
+/* ========================================= */
+/* Hover dos botões de ação */
+/* ========================================= */
+.action-btn:hover{
+    background-color: #5f8fc8; /* Cor ao passar o mouse */
+    color: white; /* Mantém a cor do texto */
+}
