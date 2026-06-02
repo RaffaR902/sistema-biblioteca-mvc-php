@@ -135,7 +135,7 @@
                                 <input class="form-check-input" type="checkbox" 
                                     value="<?= $item->Id ?>" name="autor[]" 
                                     id="autor<?= $item->Id ?>"
-                                    <?= (in_array($item->Id, $model->Id_Autores)) ? 'checked' : '' ?> />
+                                    <?= (in_array($item->Id, $model->Id_Autores ?? [])) ? 'checked' : '' ?> />
 
                                 <!-- Nome do autor -->
                                 <label class="form-check-label" for="autor<?= $item->Id ?>">

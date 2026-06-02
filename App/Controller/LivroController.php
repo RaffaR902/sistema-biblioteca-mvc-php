@@ -50,7 +50,7 @@ final class LivroController extends Controller
                 $model->Isbn = $_POST['isbn'];
                 $model->Ano = $_POST['ano'];
                 $model->Editora = $_POST['editora'];
-                $model->Id_Autores = $_POST['autor'];
+                $model->Id_Autores = $_POST['autor'] ?? [];
                 
                 $model->save(); // Insere ou Atualiza dependendo do ID
 
